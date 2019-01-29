@@ -32,7 +32,7 @@ public class EmployeeController {
 		return mav;
 	}
 	
-	@RequestMapping("{code}")
+	@RequestMapping("edit/{code}")
 	private ModelAndView edit(ModelAndView mav,@PathVariable("code")int code) {
 		mav.setViewName("edit");
 		return mav;
