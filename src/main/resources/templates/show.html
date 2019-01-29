@@ -1,0 +1,11 @@
+<html>
+	<body>
+		<p th:text="${code}"></p>
+		<p th:text="${employee.name}"></p>
+		<p th:text="${employee.age}"></p>
+		<p th:text="${employee.section}"></p>
+		<p><a th:href="@{'/employees/edit/' + ${employee.code}}">編集する</a></p>
+		<p><a href=/employees/delete>削除する</a></p>
+		<p><a href=/employees/>戻る</a></p>
+	</body>
+</html>

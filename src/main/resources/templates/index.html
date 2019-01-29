@@ -1,0 +1,12 @@
+<html>
+	<body>
+		<h1>index.htmlページです</h1>
+		<p><a href="create">新規作成</a></p><br>
+		<tr th:each="employee:${employees}">	
+			<p><a th:href="${employee.code}"><span th:text="${employee.code}"></span></a></p>
+			<p><td th:text="${employee.name}"></td></p>
+			<p><td th:text="${employee.age}"></td></p>
+			<p><td th:text="${employee.section}"></td></p>
+		</tr>
+	</body>
+</html>
