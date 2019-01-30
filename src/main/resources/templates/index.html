@@ -1,12 +1,18 @@
 <html>
 	<body>
 		<h1>index.htmlページです</h1>
-		<p><a href="create">新規作成</a></p><br>
+		<p><a href="create">新規作成</a></p>
 		<tr th:each="employee:${employees}">	
-			<p><a th:href="${employee.code}"><span th:text="${employee.code}"></span></a></p>
-			<p><td th:text="${employee.name}"></td></p>
-			<p><td th:text="${employee.age}"></td></p>
-			<p><td th:text="${employee.section}"></td></p>
-		</tr>
+		<form action="show" method="POST">
+			<input type="hidden" th:name="code" th:value="${employee.code}"></input>
+			<input type="hidden" th:name="name" th:value="${employee.name}"></input>
+			<input type="hidden" th:name="age" th:value="${employee.age}"></input>
+			<input type="hidden" th:name="section" th:value="${employee.section}"></input>
+			<td th:text="${employee.code}"></td><br>
+			<td th:text="${employee.name}"></td><br>
+			<td th:text="${employee.age}"></td><br>
+			<td th:text="${employee.section}"></td>
+			<input type="submit" value="詳細"></input>
+		</form>
 	</body>
 </html>

@@ -1,13 +1,14 @@
 <html>
 	<body>
 		<h1>EDITページ</h1>
-		<form action="result" method="GET">
-			<input type="hidden" name="code" th:value="${code}"></input>
-			<p>コード : <span th:text="${code}"></span></p>
-			<p>従業員名 : <input type="text" name="name"></input></p>
-			<p>年齢 : <input type="text" name="age"></input></p>
-			<p>所属先 : <input type="text" name="section"></input></p>
+		<form action="editResult" method="POST">
+			<input type="hidden" th:name="code" th:value="${code}"></input>
+			<p>CODE : <span th:text="${code}"></span></p>
+			<p>名前 : <input type="text" name="name" th:placeholder="${name}"></input></p>
+			<p>年齢 : <input type="text" name="age" th:placeholder="${age}"></input></p>
+			<p>所属 : <input type="text" name="section" th:placeholder="${section}"></input></p>
 			<p><input type="submit" value="更新する"></input></p>
 		</form>
 	</body>
 </html>
+	

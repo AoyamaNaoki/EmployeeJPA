@@ -31,7 +31,7 @@ public class EmployeeJpaApplicationTests {
 	@Test
 	public void SaveTest() {
 		Employee employee = new Employee();
-		employee.setCode(201024);
+		employee.setCode(201042);
 		employee.setAge(1);
 		employee.setName("aaa");
 		employee.setSection("afsf");

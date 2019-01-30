@@ -1,11 +1,22 @@
 <html>
 	<body>
 		<p th:text="${code}"></p>
-		<p th:text="${employee.name}"></p>
-		<p th:text="${employee.age}"></p>
-		<p th:text="${employee.section}"></p>
-		<p><a th:href="@{'/employees/edit/' + ${employee.code}}">編集する</a></p>
-		<p><a href=/employees/delete>削除する</a></p>
-		<p><a href=/employees/>戻る</a></p>
+		<p th:text="${name}"></p>
+		<p th:text="${age}"></p>
+		<p th:text="${section}"></p>
 	</body>
+		<form action="edit" method="POST">
+			<input type="hidden" th:name="code" th:value="${code}"></input>
+			<input type="hidden" th:name="name" th:value="${name}"></input>
+			<input type="hidden" th:name="age" th:value="${age}"></input>
+			<input type="hidden" th:name="section" th:value="${section}"></input>
+			<input type="submit" value="編集"></input>
+		</form>
+		<form action="delete" method="POST">
+			<input type="hidden" th:name="code" th:value="${code}"></input>
+			<input type="hidden" th:name="name" th:value="${name}"></input>
+			<input type="hidden" th:name="age" th:value="${age}"></input>
+			<input type="hidden" th:name="section" th:value="${section}"></input>
+			<input type="submit" value="削除"></input>
+		</form>
 </html>

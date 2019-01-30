@@ -27,6 +27,7 @@ public class EmployeeService {
 		employeeRepository.save(employee);
 	}
 	// 従業員データを削除
-	public void Delete(int id) {
+	public void Delete(int code) {
+		employeeRepository.deleteById(code);
 	}
 }
