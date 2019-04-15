@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService = new EmployeeService();
+	@Autowired
+	AttendanceService attendanceService = new AttendanceService();
 	
 	@RequestMapping("")
 	public ModelAndView index(ModelAndView mav) {
@@ -81,5 +84,73 @@ public class EmployeeController {
 		model.addAttribute("code",code);
 		employeeService.Delete(code);
 		return "delete";
+	}
+	
+	@RequestMapping("month")
+	public String month(Model model) {
+		return "month";
+	}
+	
+	@RequestMapping("detail")
+	public String detail(Model model,@RequestParam("code")int code) {
+		model.addAttribute("code", code);
+		return "detail";
+	}
+	
+	@RequestMapping("begin")
+	public String begin(Model model) {
+		Attendance attendance = new Attendance();
+		Date date = new Date();
+		int hour = date.getHours();
+		int min = date.getMinutes();
+		int sec = date.getSeconds();
+		String hourStr = String.valueOf(hour);
+		String minStr = String.valueOf(min);
+		String secStr = String.valueOf(sec);
+		if(hour < 10) {
+			hourStr = String.valueOf("0" + hour);
+		}
+		if(min < 10) {
+			minStr = String.valueOf("0" + min);
+		}
+		if(sec < 10) {
+			secStr = String.valueOf("0" + sec);
+		}
+		attendance.setBegin(hourStr + ":" + minStr + ":" + secStr);
+		attendance.setCode(201099);
+		attendance.setFinish("00:00:00");
+		String message="出勤しました";
+		model.addAttribute("message",message);
+		attendanceService.Create(attendance);
+		return "begin";
+	}
+	
+	@RequestMapping("finish")
+	public String finish(Model model) {
+		Attendance attendance = new Attendance();
+		Date date = new Date();
+		int hour = date.getHours();
+		int min = date.getMinutes();
+		int sec = date.getSeconds();
+		String hourStr = String.valueOf(hour);
+		String minStr = String.valueOf(min);
+		String secStr = String.valueOf(sec);
+		if(hour < 10) {
+			hourStr = String.valueOf("0" + hour);
+		}
+		if(min < 10) {
+			minStr = String.valueOf("0" + min);
+		}
+		if(sec < 10) {
+			secStr = String.valueOf("0" + sec);
+		}
+		Attendance oldData = attendanceService.FindById(201099);
+		attendance.setCode(201099);
+		attendance.setFinish(hourStr + ":" + minStr + ":" + secStr);
+		attendance.setBegin(oldData.getBegin());
+		String message="退勤しました";
+		model.addAttribute("message",message);
+		attendanceService.Create(attendance);
+		return "begin";
 	}
 }

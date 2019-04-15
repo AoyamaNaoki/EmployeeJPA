@@ -1,15 +1,39 @@
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<title>indexページです</title>
+		<link rel="stylesheet" href="/../css/bootstrap.css" />
+	    <script src="/../js/jquery.js"></script>
+	    <script src="/../js/bootstrap.js"></script>
+	</head>
 	<body>
 		<h1>index.htmlページです</h1>
+		<h2>ユーザー一覧</h2>
 		<p><a href="create">新規作成</a></p>
-		<tr th:each="employee:${employees}">	
-		<form action="show" method="POST">
-			<input type="hidden" th:name="code" th:value="${employee.code}"></input>
-			<td th:text="${employee.code}"></td><br>
-			<td th:text="${employee.name}"></td><br>
-			<td th:text="${employee.age}"></td><br>
-			<td th:text="${employee.section}"></td>
-			<input type="submit" value="詳細"></input>
-		</form>
+		<table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">従業員名</th>
+              <th scope="col">年齢</th>
+              <th scope="col">所属</th>
+              <th scope="col">詳細</th>
+            </tr>
+          </thead>
+          <tbody>
+			<tr th:each="employee:${employees}">
+              <td th:text="${employee.code}"</td>
+              <td th:text="${employee.name}"></td>
+              <td th:text="${employee.age}"></td>
+              <td th:text="${employee.section}"></td>
+              <td>
+              	<form action=detail method="POST">
+              		<input type="hidden" name="code" th:value="${employee.code}" />
+              		<input type="submit" value="詳細" />
+              	</form>
+              </td>
+			</tr>
+           </tbody>
+         </table> 
 	</body>
 </html>

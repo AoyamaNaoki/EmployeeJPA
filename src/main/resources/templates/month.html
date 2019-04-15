@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>勤怠管理</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10">
+        <h2><a href="/">トップページへ</a></h2>
+        <h1>2月</h1>
+        <table class="table" id="table">
+          <thead class="thead-dark">
+            <tr>
+              <p th:text="${currentTime}"></p>
+              <th scope="col">日</th>
+              <th scope="col">曜日</th>
+              <th scope="col">勤怠</th>
+              <th scope="col">始業時刻</th>
+              <th scope="col">終業時刻</th>
+              <th scope="col">休憩</th>
+              <th scope="col">勤務時間</th>
+              <th scope="col">普通残業時間</th>
+              <th scope="col">深夜残業時間</th>
+              <th scope="col">休日労働時間</th>
+              <th scope="col">休日深夜残業時間</th>
+              <th scope="col">休日労働時間</th>
+              <th scope="col">休日残業時間</th>
+              <th scope="col">確定</th>
+            </tr>
+          </thead>
+          <tbody>
+                <th scope="col" id="day"></input></th>
+                <th scope="col" id="dow"></th>
+                <th scope="col">
+                  <select name="state">
+                    <option value=1>出勤</option>
+                    <option value=2>欠勤</option>
+                    <option value=3>遅刻</option>
+                    <option value=4>早退</option>
+                  </select>
+                </th>
+                <form action="begin" method="POST">
+               		<th scope="col" id="begin"><input type="submit" value="出勤"></input></th>
+              	</form>
+              	<form action="finish" method="POST">
+              		<th scope="col" id="finish"><input type="submit" value="退勤"></input></th>
+              	</form>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="month.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
