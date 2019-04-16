@@ -1,0 +1,93 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: 2019 年 4 月 16 日 18:10
+-- サーバのバージョン： 5.5.60-MariaDB
+-- PHP Version: 7.2.17
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `sampledb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `attendance`
+--
+
+CREATE TABLE `attendance` (
+  `code` int(20) NOT NULL,
+  `begin` varchar(255) NOT NULL,
+  `finish` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `attendance`
+--
+
+INSERT INTO `attendance` (`code`, `begin`, `finish`) VALUES
+(201099, '18:06:38', '00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `employees`
+--
+
+CREATE TABLE `employees` (
+  `code` int(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `age` int(20) NOT NULL,
+  `section` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `employees`
+--
+
+INSERT INTO `employees` (`code`, `name`, `age`, `section`) VALUES
+(201099, 'test', 11111, 'test'),
+(201100, 'あああああ', 1111111, 'aaaaaaaaf'),
+(201101, 'あああああ', 1111111, 'aaaaaaaaf'),
+(201102, 'あああああ', 123456, 'k'),
+(201103, '111', 111, '111');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD PRIMARY KEY (`code`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD KEY `code` (`code`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `attendance`
+--
+ALTER TABLE `attendance`
+  MODIFY `code` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201100;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `code` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201104;
+COMMIT;
